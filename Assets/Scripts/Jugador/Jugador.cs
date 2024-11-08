@@ -2,44 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 public class Jugador : MonoBehaviour
 {
+    [SerializeField]
+    private LayerMask mask;
     [SerializeField] 
     private float velocidadMovimiento;//5f
     [SerializeField] 
     private float velocidaRotacion;//200f
     [SerializeField] 
     private float fuerzaSalto;
-    [SerializeField] 
-    private LayerMask mask;
-    [SerializeField] 
-    private Image sistemaVida;
-    [SerializeField] 
-    private float maxVida;
     [SerializeField]
     private string escenaACargar;
-
     private Movimiento movimiento;
     private Salto salto;
-    private Vida vida;
+    [SerializeField]
+    private Vida Vida;
     private Animator anim;
     private Rigidbody rb;
-
+    [SerializeField]
     private bool haCaido;
-
-    public object Vida { get; internal set; }
+    [SerializeField] 
+    private Camera playerCamera; // Referencia a la cámara del jugador
+    private PhotonView photonView;
 
     void Start()
     {
+        photonView = GetComponent<PhotonView>();
+        playerCamera = GetComponentInChildren<Camera>();
+        if (photonView.IsMine)
+        {
+            playerCamera.gameObject.SetActive(true); // Activa la cámara para este jugador
+        }
+        else
+        {
+            playerCamera.gameObject.SetActive(false); // Desactiva la cámara para otros jugadores
+        }
+        Vida = GameObject.Find("BarraDeVida").GetComponent<Vida>();
         haCaido = false;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         movimiento = new Movimiento(transform, velocidadMovimiento, velocidaRotacion);
         salto = new Salto(rb, fuerzaSalto, mask);
-        vida = new Vida(maxVida, sistemaVida);
     }
 
     void Update()
@@ -57,10 +64,10 @@ public class Jugador : MonoBehaviour
             salto.Saltar();
         }
 
-        if (vida.EstaMuerto())
+        /*if (vida.EstaMuerto())
         {
             Muerte();
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,10 +75,12 @@ public class Jugador : MonoBehaviour
         if (other.CompareTag("Destructor"))
         {
             // Aplicar el daño desde aquí
-            vida.TomarDaño(1.0f);  // O la cantidad de daño que corresponda
+            if (!haCaido)
+            {
+                Vida.TomarDaño();  // O la cantidad de daño que corresponda
+            }            
             haCaido = true;
-            StartCoroutine(TiempoInmunidad());
-            
+            StartCoroutine(TiempoInmunidad());            
         }
     }
 

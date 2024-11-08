@@ -2,22 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Vida
-{
-    public float MaxVida { get; private set; }
-    public float ActualVida { get; private set; }
+public class Vida : MonoBehaviour
+{    
+    [SerializeField]
     private Image sistemaVida;
+    [SerializeField]
+    private float maxVida;
+    [SerializeField]
+    private float actualVida;
+    public float MaxVida { get => maxVida; set => maxVida = value; }
+    public float ActualVida { get => actualVida; set => actualVida = value; }
 
-    public Vida(float maxVida, Image sistemaVida)
+    public void TomarDaño()
     {
-        MaxVida = maxVida;
-        ActualVida = MaxVida;
-        this.sistemaVida = sistemaVida;
-    }
-
-    public void TomarDaño(float cantidad)
-    {
-        ActualVida -= cantidad;
+        ActualVida -= 1;
         Debug.Log(ActualVida);
         ActualizarVida();
     }
