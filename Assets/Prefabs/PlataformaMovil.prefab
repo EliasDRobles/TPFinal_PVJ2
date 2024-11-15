@@ -144,11 +144,11 @@ MonoBehaviour:
   m_PositionModel:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
+    TeleportIfDistanceGreaterThan: 7
     InterpolateOption: 2
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
+    ExtrapolateOption: 1
     ExtrapolateSpeed: 1
     ExtrapolateIncludingRoundTripTime: 1
     ExtrapolateNumberOfStoredPositions: 1
@@ -223,7 +223,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5359436fc9ee04918b95c995e5e8a819, type: 2}
+  - {fileID: 2100000, guid: b2efde10dd94755479d87d528434265d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

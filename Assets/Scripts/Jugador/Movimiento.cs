@@ -15,9 +15,9 @@ public class Movimiento
             this.velocidadRotacion = velocidadRotacion;
         }
 
-        public void Mover(float inputHorizontal, float inputVertical)
+        public void Mover(float x, float y)
         {
-            transform.Rotate(0, inputHorizontal * Time.deltaTime * velocidadRotacion, 0);
-            transform.Translate(0, 0, inputVertical * Time.deltaTime * velocidadMovimiento);
+            transform.Rotate(0, x * Time.deltaTime * velocidadRotacion, 0);
+            transform.Translate(0, 0, y * Time.deltaTime * velocidadMovimiento);
         }
 }

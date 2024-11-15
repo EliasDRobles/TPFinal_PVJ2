@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 public class Vida : MonoBehaviour
 {    
     [SerializeField]
     private Image sistemaVida;
-    [SerializeField]
-    private float maxVida;
-    [SerializeField]
-    private float actualVida;
-    public float MaxVida { get => maxVida; set => maxVida = value; }
-    public float ActualVida { get => actualVida; set => actualVida = value; }
+    private float maxVida=10;
+    private float vidaActual;
 
+    public void Start()
+    {
+            vidaActual = maxVida;
+    }
     public void TomarDaño()
     {
-        ActualVida -= 1;
-        Debug.Log(ActualVida);
+        vidaActual -= 1;
         ActualizarVida();
     }
 
     private void ActualizarVida()
     {
-        sistemaVida.fillAmount = ActualVida / MaxVida;
+        sistemaVida.fillAmount = vidaActual / maxVida;
     }
 
     public bool EstaMuerto()
     {
-        return ActualVida <= 0;
+        return vidaActual <= 0;
     }
 }
