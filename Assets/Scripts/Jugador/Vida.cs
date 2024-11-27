@@ -7,17 +7,21 @@ public class Vida : MonoBehaviour
 {    
     [SerializeField]
     private Image sistemaVida;
-    private float maxVida=10;
-    private float vidaActual;
+    private float maxVida=2;
+    private float vidaActual; public float VidaActual { get => vidaActual; }
 
     public void Start()
     {
-            vidaActual = maxVida;
+        vidaActual = maxVida;
+        GameObject objetoImagen = GameObject.Find("BarraDeVida");
+        sistemaVida = objetoImagen.GetComponent<Image>();
     }
     public void TomarDaño()
     {
         vidaActual -= 1;
         ActualizarVida();
+        if (vidaActual > 0) return;
+        
     }
 
     private void ActualizarVida()
@@ -25,8 +29,5 @@ public class Vida : MonoBehaviour
         sistemaVida.fillAmount = vidaActual / maxVida;
     }
 
-    public bool EstaMuerto()
-    {
-        return vidaActual <= 0;
-    }
+    
 }

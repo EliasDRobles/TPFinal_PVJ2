@@ -27,7 +27,7 @@ public class ZonaReinicio : MonoBehaviour, IObserver
         if (other.gameObject.CompareTag("Player"))
         {
             PhotonView photonView = other.GetComponent<PhotonView>();
-            if(photonView != null)
+            if (photonView != null)
             {
                 int playerID = photonView.Owner.ActorNumber;
                 switch (playerID)

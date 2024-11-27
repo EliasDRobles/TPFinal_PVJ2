@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 810610720726493900}
-  - component: {fileID: 5924034639991024469}
   - component: {fileID: 3782192099144013605}
-  - component: {fileID: 4369366943427138647}
+  - component: {fileID: 1113631566988718640}
   - component: {fileID: 2807020285478208602}
   - component: {fileID: 5774277131344193964}
   - component: {fileID: -8541043342389349770}
-  - component: {fileID: 2259389870440649487}
+  - component: {fileID: 6841964893845045926}
   m_Layer: 3
   m_Name: PlataformaMovil
   m_TagString: Untagged
@@ -39,19 +38,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5924034639991024469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707763365155372089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88ecafcccb57f6240ac4450c4c25d847, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 2
 --- !u!114 &3782192099144013605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transportaPersonaje: 1
---- !u!114 &4369366943427138647
+--- !u!114 &1113631566988718640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,9 +60,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1707763365155372089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253579b63997b544ea32db707a0c240a, type: 3}
+  m_Script: {fileID: 11500000, guid: b4323e979429a5c499d90b1dd53379aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: -2
+  maxDistance: 20
 --- !u!54 &2807020285478208602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -104,8 +92,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3103843, y: 0.18006736, z: 1.3000385}
-  m_Center: {x: 0.00000011920929, y: 0.089235574, z: 0.000000059604645}
+  m_Size: {x: 1.31, y: 0.17419931, z: 1.31}
+  m_Center: {x: 0, y: 0.08297701, z: 0}
 --- !u!114 &-8541043342389349770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,12 +112,11 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 2259389870440649487}
+  ObservedComponents: []
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2259389870440649487
+--- !u!114 &6841964893845045926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,30 +125,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1707763365155372089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 7
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 1
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &7293130847773604440
 GameObject:
   m_ObjectHideFlags: 0

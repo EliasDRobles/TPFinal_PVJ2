@@ -9,7 +9,7 @@ public class Jugador : MonoBehaviour
 {
     [SerializeField] private LayerMask mask;
     [SerializeField] private float velocidadMovimiento;//5f
-    [SerializeField] private float velocidaRotacion;//200f
+    [SerializeField] private float velocidadRotacion;//200f
     [SerializeField] private float fuerzaSalto;
     private bool invulnerable;
 
@@ -27,14 +27,18 @@ public class Jugador : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        movimiento = new Movimiento(transform, velocidadMovimiento, velocidaRotacion);
+        movimiento = new Movimiento(transform, velocidadMovimiento, velocidadRotacion);
         salto = new Salto(rb, fuerzaSalto, mask);
         photonView = GetComponent<PhotonView>();
         playerCamera = GetComponentInChildren<Camera>();
         if (photonView.IsMine)
         {
             playerCamera.gameObject.SetActive(true); // Activa la cámara para este jugador
-            Vida = GameObject.Find("BarraDeVida").GetComponent<Vida>();
+            Vida = GameObject.Find("Vida").GetComponent<Vida>();
+            if (Vida == null)
+            {
+                Debug.LogError("No se pudo encontrar el componente Vida en la escena.");
+            }
         }
         else
         {
@@ -49,12 +53,6 @@ public class Jugador : MonoBehaviour
     {
 
         Movement();
-
-        if (Vida.EstaMuerto())
-        {
-            PhotonNetwork.Disconnect();
-            Muerte();
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,18 +61,17 @@ public class Jugador : MonoBehaviour
         {
             if (!invulnerable)
             {
-                photonView.RPC("AplicarDaño", RpcTarget.AllBuffered);
+                Vida.TomarDaño();
+                if (Vida.VidaActual <= 0)
+                {
+                    NotificarGameOver();
+                }
             }
             invulnerable = true;
             StartCoroutine(TiempoInvulnerabilidad());
         }
     }
 
-    [PunRPC]
-    void AplicarDaño()
-    {
-        Vida.TomarDaño();
-    }
     private void Movement()
     {
         float x = Input.GetAxis("Horizontal");
@@ -98,9 +95,23 @@ public class Jugador : MonoBehaviour
         invulnerable = false; // Habilita nuevamente la colisión
     }
 
-    private void Muerte()
+    public void NotificarGameOver()
     {
+        // Llama a un RPC para notificar a todos los jugadores
+        photonView.RPC("CargarGameOver", RpcTarget.AllBuffered);
+    }
+
+
+    [PunRPC]
+    private void CargarGameOver()
+    {
+        // Si todos están listos, carga la escena de Game Over
+        PhotonNetwork.Disconnect(); 
         SceneManager.LoadScene("MenuGameOver");
+        
+
+
+        //GameManager.Instance.CheckGameOver();
     }
 }
 

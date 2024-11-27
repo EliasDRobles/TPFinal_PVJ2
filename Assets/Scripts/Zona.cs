@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Zona : MonoBehaviour
 {
-    public int numeroScena;
+    public string escena;
     private void OnTriggerEnter(Collider other)
     {
         
         if ( other.tag=="Player") {
-            Debug.Log("colision");
-            SceneManager.LoadScene(numeroScena);
+            SceneManager.LoadScene(escena);
         }
     }
 }

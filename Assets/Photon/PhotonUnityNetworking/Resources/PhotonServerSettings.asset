@@ -41,6 +41,11 @@ MonoBehaviour:
   - RespawnSpaceship
   - SincronizarVida
   - "AplicarDa\xF1o"
+  - "AvisarDa\xF1o"
+  - LoadGameOverScene
+  - CargarGameOver
+  - DisconnectPlayersAndChangeScene
+  - SwapImages
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

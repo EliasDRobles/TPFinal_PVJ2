@@ -7,8 +7,6 @@ public class PlataformaTransportadora : MonoBehaviour
     [SerializeField] 
     private bool transportaPersonaje;
 
-
-
     private void OnCollisionStay(Collision collision)
     {
         if (transportaPersonaje)
