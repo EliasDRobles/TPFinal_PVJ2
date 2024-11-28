@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Plataforma que se solo gira
+//Utiliza una interfaz
+//Hereda de plataforma
 public class RotablePlatform : Platform, IRotable
 {
     [SerializeField]

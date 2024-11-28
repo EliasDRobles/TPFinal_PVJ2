@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este script solo se encarga del movimiento (SRP) y (OCP)
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float velocidadMovimiento;//5f

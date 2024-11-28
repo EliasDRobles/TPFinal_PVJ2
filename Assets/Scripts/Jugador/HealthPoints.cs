@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+// Este script solo se encarga de la vida del Jugador (SRP) y (OCP)
+//Uso adecuado de Photon para uso de la vida en el multijugador.
 public class HealthPoints : MonoBehaviour
 {
     [SerializeField] private float maxHealth;    public float MaxHealth { get => maxHealth; }

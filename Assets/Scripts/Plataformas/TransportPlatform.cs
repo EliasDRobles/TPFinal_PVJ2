@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Responsabilidad Única
 public class TransportPlatform : MonoBehaviour
 {
     [SerializeField]

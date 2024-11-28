@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este script solo se encarga de las animaciones (SRP) y (OCP)
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator anim;

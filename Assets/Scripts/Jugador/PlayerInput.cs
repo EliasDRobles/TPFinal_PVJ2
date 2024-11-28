@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este script solo se encarga de los inputs (SRP) y (OCP)
 public class PlayerInput : MonoBehaviour
 {
     private float x; public float X { get => x; }

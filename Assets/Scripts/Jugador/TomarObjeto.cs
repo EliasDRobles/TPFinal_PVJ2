@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Una extension de Player que sirve para tomar objetos
 public class TomarObjeto : MonoBehaviour
 {
     [SerializeField] private GameObject point;

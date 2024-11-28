@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+// Este script solo se encarga de la cámara (SRP), (OCP)
+//Uso de Photon para darle al jugador su propia cámara.
 public class PlayerCam : MonoBehaviour
 {
     [SerializeField]

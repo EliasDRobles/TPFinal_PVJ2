@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este script solo se encarga del salto (SRP) y permite la extension (OCP)
 public class PlayerJump : MonoBehaviour
 {
     [SerializeField] private LayerMask mask;

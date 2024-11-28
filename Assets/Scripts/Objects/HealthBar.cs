@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Ahora la barra de vida es manejada aparte
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image healthBar;

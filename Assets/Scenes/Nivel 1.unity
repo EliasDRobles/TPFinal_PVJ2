@@ -7316,7 +7316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &397665448
 Transform:
   m_ObjectHideFlags: 0
@@ -18749,10 +18749,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2186987056354230658, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
-      propertyPath: transportaPersonaje
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2918695649145002994, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
       propertyPath: m_Name
       value: Plaforma Giratoria
@@ -18777,8 +18773,12 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8779144224097023001, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3396614722817621473, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
 --- !u!4 &1112111945 stripped
 Transform:
@@ -24390,10 +24390,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2186987056354230658, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
-      propertyPath: transportaPersonaje
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2918695649145002994, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
       propertyPath: m_Name
       value: Plaforma Giratoria
@@ -24418,8 +24414,12 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8779144224097023001, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
+      propertyPath: ObservedComponents.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3396614722817621473, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0488d635eb8490a4e9e06a77babfcd6d, type: 3}
 --- !u!4 &1511997374 stripped
 Transform:
